@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  mailconfirm:
+    image: mailconfirm
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      DB_URL: mongodb://database/mailconfirm
+      URL: http://localhost:3000
+      EMAILUSER: example@example.com
+      EMAILPASS: YouDontThinkIAmStupidDoYou?
+    ports:
+      - 3000:3000
+  database:
+    image: mongo
+    ports:
+      - 27017:27017
+

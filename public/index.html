@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Reciept Generator</title>
+</head>
+<body>
+    <h1>
+        Mail Reciept Generator<br>
+        <small>by Tobias Kendlbacher</small>
+    </h1>
+    <noscript>
+        <pre>
+            This website relies on JavaScript. Please either enable JavaScript in your Browser, or allow this page to use JavaScript.
+            I (probably) won't sell your data.
+            (Exceptions include, but are not limited to: Friends asking, anyone giving me literally any amount of money above 0.01€)
+        </pre>
+    </noscript>
+    <form action="javascript:void(0);" id="dataform">
+        <p>
+            <label for="input-sender">Sender (your email): </label>
+            <input type="text" id="input-sender" name="sender" placeholder="Sender">
+        </p>
+        <p>
+            <label for="input-recipient">Recipient (the other persons email): </label>
+            <input type="text" id="input-recipient" name="recipient" placeholder="Recipient">
+        </p>
+        <p>
+            <label for="input-subject">Subject: </label>
+            <input type="text" id="input-subject" name="subject" placeholder="Subject">
+        </p>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="outputdiv">
+        <code id="output">
+            Please fill out the form above and click the button to generate a reciept.
+        </code>
+    </div>
+    <div>
+        <pre>
+            After generating your read-reciept embed, you just need to paste it into an HTML email.
+            It is not guaranteed to work with all email clients or recipients.
+        </pre>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
