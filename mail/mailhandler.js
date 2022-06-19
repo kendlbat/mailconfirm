@@ -28,13 +28,21 @@ async function sendConfirmation(hash) {
         html: `<h1>READ RECIEPT</h1><p>The email with the subject:<br><b>${mail.subject}</b><br>has been read by: <br>${mail.reciever}</p><p>You can now delete this email.</p>`
     };
     
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
+    let tries = 0;
+    let retryInterval = setInterval(() => {
+        transporter.sendMail(mailOptions, function(error, info){
+            tries++;
+            if (error) {
+                console.log(error);
+                if (tries > 10) {
+                    clearInterval(retryInterval);
+                }
+            } else {
+                console.log('Email sent: ' + info.response);
+                clearInterval(retryInterval);
+            }
+        });
+    }, 60000);
 
     dbhandler.removeByHash(hash);
     return true;
