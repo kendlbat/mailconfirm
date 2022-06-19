@@ -23,7 +23,7 @@ async function sendConfirmation(hash) {
     
     const mailOptions = {
         from: process.env.EMAILUSER,
-        to: mail.reciever,
+        to: mail.sender,
         subject: `READ: ${mail.subject}`,
         html: `<h1>READ RECIEPT</h1><p>The email with the subject:<br><b>${mail.subject}</b><br>has been read by: <br>${mail.reciever}</p><p>You can now delete this email.</p>`
     };
