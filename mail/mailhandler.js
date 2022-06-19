@@ -25,7 +25,7 @@ async function sendConfirmation(hash) {
         from: "dev.htl.vil@gmail.com",
         to: mail.reciever,
         subject: `READ: ${mail.subject}`,
-        html: `<h1>READ RECIEPT</h1><p>The email with the subject:<br><b>${mail.subject}</b> has been read by: <br>${mail.reciever}</p><p>You can now delete this email.</p>`
+        html: `<h1>READ RECIEPT</h1><p>The email with the subject:<br><b>${mail.subject}</b><br>has been read by: <br>${mail.reciever}</p><p>You can now delete this email.</p>`
     };
     
     transporter.sendMail(mailOptions, function(error, info){
